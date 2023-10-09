@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: efd75efad114506488b2703d6ba0a94a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pfLaser: {fileID: 8471668311900562663, guid: 64167bfcfd139454b8acba603b5885dc, type: 3}
+  - DisparoTriplo: {fileID: 1645966771124026573, guid: 332e2ba01b0ae4044be39a12bd014a01, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
