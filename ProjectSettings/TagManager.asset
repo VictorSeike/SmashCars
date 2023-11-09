@@ -49,3 +49,6 @@ TagManager:
   - name: primeiro-plano
     uniqueID: 846028111
     locked: 0
+  - name: HUD
+    uniqueID: 2451783209
+    locked: 0

@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    
     public float velocidade = 20.0f;
     public float entradaHorizontal;
     public float entradaVertical;
 
     public GameObject pfLaser;
+
+    public GameObject _explosaoPlayerPrefab;
 
     public float tempoDeDisparo = 0.3f;
 
@@ -18,7 +21,10 @@ public class Player : MonoBehaviour
 
     public GameObject DisparoTriplo;
 
+
     public int vidas = 3;
+
+    private GerenciadorDeUI _uiGerenciador;
 
 
 
@@ -26,8 +32,24 @@ public class Player : MonoBehaviour
     void Start()
     {
         Debug.Log("Start de " + this.name);
+
+
+
+        Debug.Log("1");
+
+
         velocidade = 30.0f;
+
+
         transform.position = new Vector3(0, 0, 0);
+
+        _uiGerenciador = GameObject.Find("Canvas").GetComponent<GerenciadorDeUI>();
+        if (_uiGerenciador != null )
+        {
+            Debug.Log("2");
+            _uiGerenciador.AtualizarVidas(vidas);
+
+        }
     }
 
     // Update is called once per frame
@@ -90,6 +112,7 @@ public class Player : MonoBehaviour
             {
 
                 Instantiate(pfLaser, transform.position + new Vector3(0, 1.1f, 0), Quaternion.identity);
+
             }
 
             podeDisparar = Time.time + tempoDeDisparo;
@@ -114,16 +137,13 @@ public class Player : MonoBehaviour
     public void DanoAoPLayer()
     {
         vidas--;
+        _uiGerenciador.AtualizarVidas(vidas);
 
         if (vidas < 1)
         {
+            Instantiate(_explosaoPlayerPrefab, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
     }
+
 }
-           
-        
-
-
-                
-

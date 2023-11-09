@@ -11,9 +11,11 @@ public class IAInimigo : MonoBehaviour
     [SerializeField]
     private GameObject _explosaoDoInimigo;
 
+    private GerenciadorDeUI _gerenciadorUI;
+
     void Start()
     {
-
+        _gerenciadorUI = GameObject.Find("Canvas").GetComponent<GerenciadorDeUI>();
     }
 
     // Update is called once per frame
@@ -41,6 +43,8 @@ public class IAInimigo : MonoBehaviour
             Destroy(other.gameObject);
             Instantiate(_explosaoDoInimigo, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
+            _gerenciadorUI.AtualizarPlacar();
+
 
         }
 
