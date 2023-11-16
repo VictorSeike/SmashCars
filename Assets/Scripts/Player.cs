@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -20,7 +21,6 @@ public class Player : MonoBehaviour
     public bool possoDarDisparoTriplo = false;
 
     public GameObject DisparoTriplo;
-
 
     public int vidas = 3;
 
@@ -143,7 +143,7 @@ public class Player : MonoBehaviour
         {
             Instantiate(_explosaoPlayerPrefab, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
+            SceneManager.LoadScene("Respawn");
         }
     }
-
 }
